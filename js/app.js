@@ -1,3 +1,4 @@
+// changing selection 
 const navs =  document.querySelectorAll('.nav');
 const sections =  document.querySelectorAll('.sections');
 
@@ -23,6 +24,7 @@ navs.forEach(nav => {
 // menu toggle
 const menuButton=  document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('.nav-links');
+const hideNavs = document.querySelectorAll('.nav');
 
 function menuToggle() {
     if (navLinks.classList.contains('menu-toggle')) {
@@ -35,6 +37,24 @@ function menuToggle() {
   }
 
   menuButton.addEventListener('click', menuToggle);
+
+
+  // hidding navlinks after clicking nav
+  function hideNavOnSmallScreen() {
+    navLinks.classList.remove('menu-toggle');
+    menuButton.innerHTML = '<i class="fas fa-bars fa-2x"></i>';
+  }
+  
+  hideNavs.forEach(nav => {
+    nav.addEventListener('click', hideNavOnSmallScreen);
+  });
+  
+  // const navLinksList = document.querySelectorAll('.nav');
+  
+  // navLinksList.forEach(navLink => {
+  //   navLink.addEventListener('click', hideNavOnSmallScreen);
+  // });
+
 
   // portfolio mouse over
   const portfolios = document.querySelectorAll('.portfolios');
